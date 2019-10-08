@@ -8,4 +8,4 @@ module.exports=async (req,res) => {
     }catch (e) {
         res.status(404).send(e.message)
     }
-}
+};
