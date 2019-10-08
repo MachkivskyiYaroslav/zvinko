@@ -21,11 +21,11 @@ module.exports= async (files, category) =>{
             throw new Error('Size must be less then 5mb')
         }
         console.log('f')
-        await fs.mkdir(path.resolve(`${appRoot}/public/${category}`), () => {
+        await fs.mkdir((`${category}`), () => {
         }, {recursive: true});
 
         const photoName = uuid() + '.' + name.split('.').pop();
-        photo.path =  `${photoName}`;
+        photo.path =  `${appRoot}/public/${category}/${photoName}`;
         photo.name = photoName;
         return {
             file,
