@@ -25,7 +25,7 @@ module.exports= async (files, category) =>{
         }, {recursive: true});
 
         const photoName = uuid() + '.' + name.split('.').pop();
-        photo.path =  `${appRoot}/public/${category}/${photoName}`;
+        photo.path =  `/var/www/html/assets/images/${category}/${photoName}`;
         photo.name = photoName;
         return {
             file,
