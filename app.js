@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors= require('cors');
-const {resolve: resolvePath} = require('path');
+const path = require('path');
 
 const userRouter= require('./routes/user.router');
 const sliderRouter= require('./routes/sliderRouter');
@@ -10,7 +10,7 @@ const sliderRouter= require('./routes/sliderRouter');
 require('dotenv').config();
 const fileUpload = require('express-fileupload');
 app.use(cors());
-app.use(express.static(resolvePath(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, 'public')));
 global.appRoot= __dirname;
 app.use(bodyParser.json());
 app.use(express.json())

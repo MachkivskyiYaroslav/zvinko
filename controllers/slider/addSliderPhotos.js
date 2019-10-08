@@ -1,4 +1,3 @@
-const {resolve: resolvePath} = require('path');
 const sliderModel = require('../../dataBase/models/sliderModel');
 const fileChecker = require('../../helpers/fileChecker');
 const {category} = require('../../constants/photoDirectory');
@@ -18,7 +17,7 @@ module.exports= async (req,res,next) => {
             photoInfo = req.body;
             if(photo){
                 const {photo: goodPhoto}= await fileChecker(req.files,category);
-                goodPhoto.mv((`C:/Users/machk/WebstormProjects/authenticate/ngApp/src/assets/images/${goodPhoto.path}`));
+                goodPhoto.mv(path.resolve(`${appRoot}/public/${category}\${goodPhoto.path}`));
                 photoInfo.url = goodPhoto.path;
                 console.log(photoInfo.url)
                 let photoModel= new sliderModel(photoInfo);

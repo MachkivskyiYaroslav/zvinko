@@ -1,6 +1,6 @@
 const uuid = require('uuid/v1');
 const fs= require('fs');
-const {resolve: resolvePath} = require('path');
+const path = require('path');
 const ControllerError = require('../error/ControllerError');
 const {mimeTypes} = require('../constants');
 
@@ -21,7 +21,7 @@ module.exports= async (files, category) =>{
             throw new Error('Size must be less then 5mb')
         }
         console.log('f')
-        await fs.mkdir((`C:/Users/machk/WebstormProjects/authenticate/ngApp/src/assets/images/${category}`), () => {
+        await fs.mkdir(path.resolve(`${appRoot}/public/${category}`), () => {
         }, {recursive: true});
 
         const photoName = uuid() + '.' + name.split('.').pop();
