@@ -1,5 +1,5 @@
 const User = require('../../dataBase/models/userModel');
-module.exports =( async (req,res) => {
+module.exports = async function(req,res)  {
     try {
         const user = new User(req.body);
         await user.save();
@@ -8,4 +8,4 @@ module.exports =( async (req,res) => {
     }catch (e) {
         res.status(404).send(e.message);
     }
-}) ;
+};
