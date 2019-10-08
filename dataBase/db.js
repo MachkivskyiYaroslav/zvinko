@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URL, {
         useNewUrlParser: true,
         useCreateIndex: true,
-        useFindAndModify: true
+        useFindAndModify: true,
+    useUnifiedTopology: true
     }, err => {
         if(err){
             console.error('error' + err)
