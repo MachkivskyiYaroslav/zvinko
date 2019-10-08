@@ -9,9 +9,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../dataBase/models/userModel');
 router.post('/user', regUser);
 router.post('/user/login', loginUser);
-router.get('/user/me',auth, async (req,res) => {
-        res.send(req.user);
-});
+router.get('/user/me',auth);
 router.post('/user/me/logout',logOut);
 router.post('/user/me/logOutAll', logOutAll);
 
