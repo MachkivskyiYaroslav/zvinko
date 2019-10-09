@@ -17,7 +17,7 @@ module.exports= async (req,res,next) => {
             photoInfo = req.body;
             if(photo){
                 const {photo: goodPhoto}= await fileChecker(req.files,category);
-                goodPhoto.mv(`${goodPhoto.path}`);
+                goodPhoto.mv(path.resolve(`${goodPhoto.path}`));
                 photoInfo.url = goodPhoto.path;
                 console.log(photoInfo.url)
                 let photoModel= new sliderModel(photoInfo);
