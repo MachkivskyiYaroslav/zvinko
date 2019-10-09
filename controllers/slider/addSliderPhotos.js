@@ -17,9 +17,9 @@ module.exports= async (req,res,next) => {
             photoInfo = req.body;
             if(photo){
                 const {photo: goodPhoto}= await fileChecker(req.files,category);
-                goodPhoto.mv(path.resolve(`${goodPhoto.path}`));
-                photoInfo.url = goodPhoto.path;
-                console.log(photoInfo.url)
+                goodPhoto.mv(path.resolve(`${appRoot}/public/${goodPhoto.path}`));
+                photoInfo.url =(goodPhoto.path);
+                console.log(photoInfo.url);
                 let photoModel= new sliderModel(photoInfo);
                 await photoModel.save((error,savedPhoto) => {
                     if(error){

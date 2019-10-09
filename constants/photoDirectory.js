@@ -1,3 +1,3 @@
 module.exports= {
-    category: 'images',
+    category: 'sliderPhotos',
 };
