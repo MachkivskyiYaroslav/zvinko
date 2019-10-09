@@ -19,9 +19,23 @@ app.use(fileUpload());
 app.get('/', (req,res) => {
     res.send('Hello From server')
 });
-require("./dataBase/db")
+require("./dataBase/db");
 app.use(userRouter);
 app.use(sliderRouter);
+app.get('/delete', (req,res) => {
+    let MongoClient = require('mongoose');
+    let url = "mongodb://localhost:27017/";
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        let dbo = db.db("test");
+        dbo.collection("photos").drop(function(err, delOK) {
+            if (err) throw err;
+            if (delOK) console.log("Collection deleted");
+            db.close();
+        });
+    });
+})
 
 
 
