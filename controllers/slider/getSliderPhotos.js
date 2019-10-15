@@ -6,6 +6,6 @@ module.exports = async (req,res) => {
         });
     }
     catch (error) {
-        console.log(error);
+        res.status(503).send(error);
     }
-}
+};
