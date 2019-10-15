@@ -6,5 +6,5 @@ const deleteSliderPhoto= require('../controllers/slider/deleteSliderPhotos');
 router.post('/administration/slider/addPhoto',addPhoto);
 router.get('/administration/slider/getPhoto', getPhoto);
 router.get('/delete',deleteAll);
-router.delete('/administration/slider/deleteById',deleteSliderPhoto);
+router.post('/administration/slider/deleteById',deleteSliderPhoto);
 module.exports= router;

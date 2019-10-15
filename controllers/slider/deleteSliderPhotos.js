@@ -16,7 +16,6 @@ module.exports = async (req, res, next) => {
                 console.log(err)
             } else {
                 fileDelete(result.url);
-
             }
         }).then(slider.deleteOne({_id: mongoose.Types.ObjectId(photoInfo._id)}, (err, result) => {
             if (err) {
