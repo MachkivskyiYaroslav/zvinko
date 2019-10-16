@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
         })
             .then(slider.deleteOne({_id: mongoose.Types.ObjectId(photoInfo._id)}, (err, result) => {
                 if (err) {
-                    console.log(err)
+                    console.log(err);
                 } else {
                     console.log(result);
                     res.status(200).send(result);
