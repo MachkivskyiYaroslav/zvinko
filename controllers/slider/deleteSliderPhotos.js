@@ -16,8 +16,6 @@ module.exports = async (req, res, next) => {
                 console.log(err)
             } else {
                 photoInfo = result;
-                console.log(photoInfo);
-                console.log(photoInfo.url);
                 fileDelete(photoInfo.url);
             }
         })
